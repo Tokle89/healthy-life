@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="View our inspiring and healthy  blog posts " />
+    <link href="https://fonts.googleapis.com/css2?family=Pompiere&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,500,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/media.css" />
+    <script defer type="module" src="js/details.js"></script>
+    <title>Healthy life | hello</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <a href="index.html" class="logo logo-header">Healthy food</a>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="blog-posts.html" class="current">Blog post`s</a>
+          <a href="contact.html">Contact us</a>
+          <a href="about.html">About us</a>
+        </nav>
+        <span class="material-symbols-outlined hamburger"> menu</span>
+      </div>
+    </header>
+    <main class="details-main">
+      <section class="detailed-post_container"></section>
+
+      <section class="comments">
+        <div class="border"></div>
+        <div>
+          <h2>Post a comment</h2>
+          <form method="post">
+            <label for="name">Full name(Minimum 5 characters)</label>
+            <div class="form-error" id="name-error">Please enter your full name</div>
+            <input type="text" id="name" name="name" />
+            <label for="email">Email address (Must be a valid email adress)</label>
+            <div class="form-error" id="email-error">Please enter a valid email address</div>
+            <input type="email" id="email" name="email" />
+            <label for="comment">Comment (Minimum 10 characters)</label>
+            <div class="form-error" id="comment-error">Comment must be minimum 10 characters</div>
+            <textarea id="comment" name="comment"></textarea>
+            <button class="btn btn-form disabled-btn" disabled>Comment</button>
+          </form>
+        </div>
+        <div class="border"></div>
+        <div class="view-comments"></div>
+        <div class="border"></div>
+      </section>
+
+      <section class="latest-posts">
+        <div class="cards-container"></div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-logo_container">
+        <h2 class="logo">Healthy food</h2>
+        <p>Copyrights belongs to Healthy foods as &copy;</p>
+      </div>
+      <div class="border"></div>
+      <div class="footer-contact_container">
+        <h3>Contact us:</h3>
+        <div class="footer-contact-info">
+          <p>Phone: +47 456 82 162</p>
+          <p>Email: healtyfood@gmail.com</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

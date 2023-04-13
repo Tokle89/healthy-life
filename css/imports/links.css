@@ -1,0 +1,44 @@
+a {
+  text-decoration: none;
+}
+
+nav a {
+  font-size: 1.3em;
+}
+.cta {
+  font-weight: bold;
+  transition: all ease-in 0.3s;
+  max-width: 96px;
+}
+.cta:hover {
+  background: var(--septenary-color);
+  border-radius: 3px;
+}
+.hamburger {
+  cursor: pointer;
+  font-size: 55px;
+  color: rgb(138, 129, 129);
+}
+.logo {
+  text-decoration: none;
+}
+.btn {
+  background: var(--tertiary-color);
+  color: var(--septenary-color);
+  border: 2px solid var(--tertiary-color);
+  padding: 7px 15px;
+  min-width: 111px;
+  transition: all ease-in 0.3s;
+}
+.btn:hover {
+  color: var(--tertiary-color);
+  background-color: var(--septenary-color);
+  cursor: pointer;
+}
+.circle-btn {
+  background: var(--tertiary-color);
+  color: var(--septenary-color);
+  font-size: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
