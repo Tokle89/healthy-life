@@ -1,6 +1,7 @@
 ## Project Exam 1
 
 For my project exam i was tasked with creating a blog site
+![healthy life](https://github.com/Tokle89/healthy-life/assets/94007467/7997f4af-cf19-4f4a-8b42-daaf63216adf)
 
 ## Description
 
