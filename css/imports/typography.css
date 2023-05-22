@@ -1,44 +1,35 @@
-/* html {
-  font-size: calc(12px + 0.390625vw);
-} */
+body {
+  font-family: var(--font-paragraph);
+}
 
 h1,
 h2,
 h3,
 h4 {
   font-family: var(--font-heading);
+  color: var(--quaternary-color);
 }
 h1 {
-  font-size: 1.1em;
+  font-size: 1.3em;
 }
 h2,
 h3,
 h4 {
-  font-size: 0.9em;
+  font-size: 1em;
   font-weight: 300;
 }
+
 p,
 ul,
 form label,
 .form-error {
-  font-family: var(--font-paragraph);
-  font-size: 0.7em;
-  color: var(--secondary-color);
+  font-size: 0.75em;
+  color: #4e4e4e;
 }
 
-nav a,
-.cta {
-  font-family: var(--font-nav), "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-
-  color: var(--primary-color);
-}
-.btn {
-  font-family: var(--font-heading);
-  font-size: 15px;
-}
 .logo {
   font-family: "Pompiere";
-  font-size: 2.5rem;
-  color: rgb(138, 129, 129);
+  font-size: 2.8rem;
+  color: var(--quaternary-color);
   font-weight: lighter;
 }

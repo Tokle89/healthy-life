@@ -1,5 +1,5 @@
-import { parseDate } from "./parse-posts.js";
-import { parsePost } from "./parse-posts.js";
+import { parseDate } from "./parse.js";
+import { parsePost } from "./parse.js";
 
 export function createElement(tagName, classes, children, text, link, src, alt) {
   const element = document.createElement(tagName);
@@ -47,6 +47,7 @@ export function createImgContainer(parsedPost, className) {
   element.append(img);
   return element;
 }
+
 export function createCard(parsedPost, post) {
   const element = createElement("div", ["card"]);
   const images = parsedPost.querySelectorAll("img");
@@ -85,13 +86,10 @@ export const createPosts = (posts) => {
       const parsedPost = parsePost(posts[i]);
       const post = createPostContainer(parsedPost, posts[i]);
 
-      let num = i + 1;
-      post.id = `${num}`;
-
       if (i == 5 || i == 6 || i == 11 || i == 13) {
         post.classList.add("flex-post");
       }
-      if (post.id > 11) {
+      if (i >= 11) {
         post.style.display = "none";
       }
 
@@ -100,49 +98,68 @@ export const createPosts = (posts) => {
   });
 };
 
-export function createDetailedPost(parsedPost) {
+export function createDetailedPost(parsedPost, post) {
   const element = createElement("div", ["detailed-post"]);
   const h2 = parsedPost.querySelector("h2");
+  const h3 = parsedPost.querySelector("h3");
+  const h4 = parsedPost.querySelector("h4");
   const paragraphs = parsedPost.querySelectorAll("p");
-  const contentContainer = createElement("div", ["content-container"]);
   const images = parsedPost.querySelectorAll("img");
 
-  paragraphs.forEach((p) => {
-    contentContainer.append(p);
+  const container = createElement("div", ["content-container"]);
+  const headerContainer = createElement("div", ["heading-container"]);
+  const contentContainer1 = createElement("div", ["content-sub_container"]);
+  const contentContainer2 = createElement("div", ["content-sub_container"]);
+
+  const title = createElement("h1", undefined, undefined, post.title.rendered);
+  const date = parseDate(post);
+  const p = createElement("p", ["date"], undefined, `Posted: ${date}`);
+  headerContainer.append(title, p);
+
+  paragraphs.forEach((p, i) => {
+    if (i === 0 && h3) {
+      const div = createElement("div", undefined, [h2, h3, p]);
+      contentContainer1.append(div);
+    } else if (i === 0) {
+      const div = createElement("div", undefined, [h2, p]);
+      contentContainer1.append(div);
+    }
+    if (i === 1 && h4) {
+      const div = createElement("div", undefined, [h4, p]);
+      contentContainer2.append(div);
+    } else if (i === 1) {
+      contentContainer2.append(p);
+    }
   });
 
-  images.forEach((image, index) => {
+  images.forEach((image, i) => {
     const img = createElement("img", undefined, undefined, undefined, undefined, `${image.src}`, `${image.alt}`);
-    img.id = `img-${index}`;
-    img.addEventListener("click", function () {
+
+    img.addEventListener("click", () => {
       createModal(img.src, img.alt);
     });
-    contentContainer.append(img);
+
+    if (i === 0) {
+      contentContainer1.append(img);
+    }
+    if (i === 1) {
+      contentContainer2.append(img);
+    }
   });
 
-  const ul = parsedPost.querySelector("ul");
-  if (ul) {
-    const p = createElement("p", undefined, undefined, "recipe:");
-    const ulContainer = createElement("div", ["ul-container"]);
-    ulContainer.append(p, ul);
-    contentContainer.append(ulContainer);
+  container.append(headerContainer, contentContainer1);
+
+  if (contentContainer2.children.length > 0) {
+    container.append(contentContainer2);
   }
 
   const btn1 = createElement("a", ["btn"], undefined, "Home", "index.html");
   const btn2 = createElement("a", ["btn"], undefined, "Blog Post`s", "blog-posts.html");
   const btnContainer = createElement("div", ["btn-container"]);
   btnContainer.append(btn1, btn2);
-  console.log(h2);
-  element.append(h2, contentContainer, btnContainer);
 
-  return element;
-}
-export function createHeading(post) {
-  const element = createElement("div", ["heading-container"]);
-  const title = createElement("h1", undefined, undefined, post.title.rendered);
-  const date = parseDate(post);
-  const p = createElement("p", undefined, undefined, `Posted: ${date}`);
-  element.append(title, p);
+  element.append(container, btnContainer);
+
   return element;
 }
 
@@ -152,7 +169,7 @@ export function createModal(src, alt) {
   const main = document.querySelector("main");
   main.append(modal, img);
 
-  modal.addEventListener("click", function () {
+  modal.addEventListener("click", () => {
     modal.remove();
     img.remove();
   });
@@ -160,15 +177,19 @@ export function createModal(src, alt) {
 
 export function createComment(comment) {
   const element = createElement("div", ["comment"]);
-  const date = parseDate(comment);
+  const parsedDate = parseDate(comment);
   const parsedComment = parsePost(comment);
 
   const heading = createElement("h2", undefined, undefined, `${comment.author_name}`);
-  const p = createElement("p", undefined, undefined, `${date}`);
-  const div = createElement("div", undefined, [heading, p]);
-  const secondP = parsedComment.querySelector("p");
+  const date = createElement("p", undefined, undefined, `${parsedDate}`);
+  const div = createElement("div", undefined, [heading, date]);
 
-  element.append(div, secondP);
+  const paragraphs = parsedComment.querySelectorAll("p");
+  const paragraphsContainer = createElement("div");
+  paragraphs.forEach((p) => {
+    paragraphsContainer.append(p);
+  });
+  element.append(div, paragraphsContainer);
   return element;
 }
 
@@ -177,5 +198,21 @@ export function createCommentMsg() {
   const heading = createElement("h2", undefined, undefined, "No comments has been posted yet.");
   element.append(heading);
 
+  return element;
+}
+
+export function createErrorMsg() {
+  const element = createElement("div", ["error-msg"]);
+  const h1 = createElement("h1", undefined, undefined, "Ooops! Something went wrong 😭");
+  const p = createElement("p", undefined, undefined, "We will try to resolve the problem as soon as possible");
+  element.append(h1, p);
+  return element;
+}
+
+export function createCommentErrorMsg() {
+  const element = createElement("div");
+  const h1 = createElement("h3", undefined, undefined, "We are unable to fetch the comments");
+  const p = createElement("p", undefined, undefined, "We will try to resolve the problem as soon as possible");
+  element.append(h1, p);
   return element;
 }

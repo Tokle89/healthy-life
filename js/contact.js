@@ -1,6 +1,6 @@
-import { validateForm } from "./functions/validateForm.js";
+import { validateForm } from "./functions/validate-form.js";
 import { toggleMenu } from "./functions/toggle-menu.js";
-import { msgReceived } from "./functions/displayMessage.js";
+import { msgReceived } from "./functions/display-message.js";
 import { formSubmission } from "./api/form-submissions.js";
 const form = document.querySelector("form");
 

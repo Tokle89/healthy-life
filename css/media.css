@@ -1,23 +1,26 @@
-@media (min-width: 420px) {
+@media (min-width: 450px) {
   /* intro-container  */
   .intro-container {
     flex-direction: row;
-    max-width: 1575px;
+    max-width: 1455px;
   }
+  .intro-container,
   .intro-container img {
-    min-height: 400px;
+    min-height: 340px;
   }
   .intro-container .intro-text {
     align-items: center;
   }
   .intro-container .shortened-p {
-    max-width: 400px;
+    max-width: 550px;
     -webkit-line-clamp: 5;
   }
+
   /* latest post  */
   .latest-posts {
     flex-direction: row-reverse;
   }
+
   .cards-container {
     flex-direction: row;
     gap: 50px;
@@ -31,6 +34,20 @@
   .left_circle-btn {
     order: 1;
   }
+  /* blog-post page   */
+  .post-container .text-container_text {
+    min-height: fit-content;
+    justify-content: center;
+  }
+
+  .flex-post {
+    gap: 35px;
+  }
+  /* detailed post  */
+  .content-sub_container img {
+    max-height: 200px;
+  }
+
   /* contact page  */
   .contact-info {
     display: flex;
@@ -40,73 +57,73 @@
 }
 
 @media (min-width: 870px) {
-  h1 {
-    font-size: 1.5em;
-  }
-  h2,
-  h3,
-  h4 {
-    font-size: 1.3em;
-  }
   p,
   ul,
   form label,
   .form-error {
     font-size: 1em;
   }
-  a {
+
+  h1 {
+    font-size: 1.8em;
+  }
+  h2,
+  h3,
+  h4,
+  a,
+  .btn {
     font-size: 1.3em;
   }
+
   .cta {
-    max-width: 123px;
+    max-width: 107px;
   }
   .btn {
     padding: 10px 30px;
-    font-size: 1.3em;
     min-width: 171px;
   }
   .logo {
     font-size: 3em;
   }
-  .btn-form {
-    max-width: 171px;
-  }
+
   /* header  */
   .hamburger {
     display: none;
   }
 
   .header-container {
-    max-width: 1600px;
-    padding: 10px 25px 0px 10px;
-    height: 90px;
-    text-align: left;
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
     margin: auto;
+    max-width: 1400px;
+    height: 70px;
+  }
+  nav,
+  nav a {
+    border: 0;
   }
   nav {
     position: static;
+    transform: translateX(0%);
     display: block;
-    transform: translateX(0);
-    border: 0;
-    text-align: center;
-    min-width: 600px;
+    max-width: 600px;
   }
   nav a {
     display: inline-block;
-    border-bottom: 0;
     padding: 0px 20px;
-    text-align: center;
+  }
+  .current {
+    padding: 4px 10px;
   }
 
   /* footer  */
   footer {
     grid-template-columns: auto auto auto;
     align-items: center;
-    gap: 30px;
+    gap: 50px;
   }
-  .footer-contact_container {
-    text-align: left;
-  }
+
   .footer-contact-info {
     flex-direction: column;
     gap: 0;
@@ -115,62 +132,72 @@
     width: 2px;
     height: 70px;
   }
+
+  /* intro-container  */
+
+  .intro-container img {
+    max-height: 520px;
+  }
+  .intro-container .cta {
+    font-size: 1.3em;
+  }
+
+  /* latest post  */
   .latest-posts h2 {
-    font-size: 1.4em;
+    font-size: 1.5em;
+    text-align: left;
   }
   .cards-container {
     max-width: 710px;
   }
   .card {
     min-width: 330px;
-    height: 480px;
+    height: 460px;
   }
   .card img {
     height: 250px;
     width: 280px;
   }
-  .card .intro-text {
-    top: -25px;
-  }
 
   /* blog-posts page  */
-
   .blog-posts_container {
-    grid-template-columns: repeat(4, 1fr);
+    padding: 0 60px;
     gap: 50px;
-  }
-  .blog-posts_container .btn {
-    grid-column: span 4;
-  }
-  .post-container .shortened-p {
-    max-width: 100%;
-  }
-  .post-container .img-container {
-    max-height: 200px;
   }
   .post-container img {
     height: 200px;
   }
-  .flex-post {
-    gap: 50px;
-    max-height: 300px;
-    max-width: none;
+  .post-container .shortened-p {
+    max-width: 100%;
   }
-  .flex-post > *,
+  .flex-post {
+    gap: 60px;
+    min-height: 310px;
+  }
+
   .flex-post img {
     height: 300px;
-    margin: 0;
   }
-  /* details page  */
-  .detailed-post,
+
+  /* details page and about page  */
+
+  .detailed-post {
+    max-width: 900px;
+  }
+
+  .content-sub_container {
+    flex-direction: row;
+    gap: 50px;
+  }
+  .content-sub_container img {
+    max-height: 250px;
+  }
+
   .comments {
-    max-width: 600px;
+    max-width: 700px;
   }
-  .detailed-post img {
-    max-height: 300px;
-  }
-  .btn-container .btn {
-    width: 171px;
+  .btn-container {
+    justify-content: space-between;
   }
   /* modal  */
   .modal-img {
@@ -185,7 +212,17 @@
 }
 
 @media (min-width: 1250px) {
+  /* latest posts  */
+
   .cards-container {
     max-width: 1090px;
+  }
+
+  /* blog posts page  */
+  .blog-posts_container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .blog-posts_container .btn {
+    grid-column: span 4;
   }
 }

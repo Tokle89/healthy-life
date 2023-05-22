@@ -1,44 +1,65 @@
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  color: var(--primary-color);
 }
 
 nav a {
   font-size: 1.3em;
+  text-decoration: none;
+}
+
+.cta,
+.btn,
+.circle-btn {
+  transition: all ease-in 0.3s;
 }
 .cta {
   font-weight: bold;
-  transition: all ease-in 0.3s;
   max-width: 96px;
 }
+.btn,
+.hamburger,
+.circle-btn {
+  cursor: pointer;
+}
+.btn,
+.circle-btn {
+  background: var(--quinary-color);
+  color: var(--secondary-color);
+}
+.cta:hover,
+.btn:hover,
+.circle-btn:hover {
+  background-color: var(--secondary-color);
+}
+.btn:hover,
+.circle-btn:hover {
+  color: var(--quinary-color);
+}
 .cta:hover {
-  background: var(--septenary-color);
   border-radius: 3px;
 }
+
 .hamburger {
-  cursor: pointer;
-  font-size: 55px;
-  color: rgb(138, 129, 129);
+  font-size: 65px;
+  color: var(--quaternary-color);
 }
 .logo {
   text-decoration: none;
 }
+
 .btn {
-  background: var(--tertiary-color);
-  color: var(--septenary-color);
-  border: 2px solid var(--tertiary-color);
+  font-size: 15px;
   padding: 7px 15px;
   min-width: 111px;
-  transition: all ease-in 0.3s;
+  border: 2px solid var(--quinary-color);
 }
-.btn:hover {
-  color: var(--tertiary-color);
-  background-color: var(--septenary-color);
-  cursor: pointer;
-}
+
 .circle-btn {
-  background: var(--tertiary-color);
-  color: var(--septenary-color);
   font-size: 50px;
   border-radius: 50%;
-  cursor: pointer;
+}
+
+.circle-btn:hover {
+  color: var(--quinary-color);
 }
